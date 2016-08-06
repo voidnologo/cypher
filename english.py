@@ -1,8 +1,6 @@
-def load_dictionary():
-    with open('dictionary.txt', 'r') as f:
-        return set(f.read().split('\n'))
+from dictionaries import system_dictionary
 
-ENGLISH_WORDS = load_dictionary()
+ENGLISH_WORDS = system_dictionary()
 
 
 def is_english_word(word):
