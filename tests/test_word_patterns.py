@@ -39,3 +39,13 @@ class WordPatternTests(unittest.TestCase):
         output = self.patterns.word_patterns
         expected_dict = json.loads('{"0": ["A", "B"], "0.0": ["AA"], "0.1": ["AB"]}')
         self.assertEqual(output, expected_dict)
+
+    def test_find_all_possible_matches_in_dictionary(self):
+        word = '@'
+        matches = self.patterns.possible_matches(word)
+        self.assertEqual(matches, ['A', 'B'])
+
+    def test_returns_empty_list_if_no_pattern_match(self):
+        word = '@' * 5
+        matches = self.patterns.possible_matches(word)
+        self.assertEqual(matches, [])
