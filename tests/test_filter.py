@@ -23,13 +23,13 @@ class FilterTests(unittest.TestCase):
     def test_unittest_intersect_positions(self):
         word1 = 'abc'
         word2 = 'cxcwiao'
-        isect = self.patterns.intersect_positions(word1, word2)
+        isect = self.patterns.intersect_locations(word1, word2)
         self.assertEqual({0: 5, 2: 0}, isect)
 
     def test_unittest_intersect_positions_returns_empty_dict_if_no_intersection(self):
         word1 = 'abc'
         word2 = 'xewio'
-        isect = self.patterns.intersect_positions(word1, word2)
+        isect = self.patterns.intersect_locations(word1, word2)
         self.assertEqual({}, isect)
 
     def test_filter_to_matching(self):
@@ -39,5 +39,3 @@ class FilterTests(unittest.TestCase):
         patterns = Patterns(dictionary=dictionary, patterns_file=self.patterns_file, create_patterns=True)
         results = patterns.filter(word1, word2)
         self.assertEqual({'1': {'A'}, '3': {'C'}}, results)
-        print(results)
-        self.fail('x')
